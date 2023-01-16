@@ -6,9 +6,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { FormatDatePipe } from './format-date.pipe';
+import { CustomStyleDirective } from './custom-style.directive';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, FormatDatePipe, CustomStyleDirective],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
