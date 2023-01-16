@@ -10,7 +10,7 @@ import { FormatDatePipe } from './format-date.pipe';
 import { CustomStyleDirective } from './custom-style.directive';
 
 @NgModule({
-  declarations: [AppComponent, FormatDatePipe, CustomStyleDirective],
+  declarations: [AppComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

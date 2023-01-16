@@ -14,12 +14,13 @@
   <div class="content-group">
 
 
+
     <table class="table-group">
       <thead>
         <tr>
           <!-- let item of listEventDate; let i = index -->
           <td>Ngày thứ</td>
-          <td *ngFor="let item of listDay; let k = index">
+          <td [appCustomStyle]="listDay[k]"  *ngFor="let item of listDay; let k = index">
             {{ listDate[k] }}
           </td>
         </tr>
@@ -30,8 +31,8 @@
               <div>Giờ</div>
             </div>
           </td>
-          <td *ngFor="let item of listDay; let l = index">
-            {{ item }}
+          <td [appCustomStyle]="listDay[l]"  *ngFor="let item of listDay; let l = index">
+            {{ item | formatDate }}
           </td>
         </tr>
       </thead>
@@ -42,11 +43,11 @@
               {{ listTime[i].id }}
             </div>
             <div>
-              {{ listTime[i].time }}
+              {{ listTime[i].time  }}
             </div>
           </td>
-
-          <td *ngFor="let item1 of item; let j= index">
+    
+          <td [appCustomStyle]="listDay[j]" *ngFor="let item1 of item; let j= index">
             {{ item1 }}
           </td>
         </tr>

@@ -6,6 +6,8 @@ import {
   PushNotifications,
   Token,
 } from '@capacitor/push-notifications';
+import { CustomStyleDirective } from '../custom-style.directive';
+import { FormatDatePipe } from '../format-date.pipe';
 
 enum Time {
   Time1 = "7 - 8.30'",
@@ -270,7 +272,7 @@ export class TablePage implements OnInit {
     })
 
     PushNotifications.addListener('pushNotificationReceived', (notification: PushNotificationSchema) => {
-      alert('push received :'+ JSON.stringify(notification))
+      alert('push received :' + JSON.stringify(notification))
     })
 
     PushNotifications.addListener('pushNotificationActionPerformed', (notification: ActionPerformed) => {

@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { TablePageRoutingModule } from './table-routing.module';
 
 import { TablePage } from './table.page';
+import { FormatDatePipe } from '../format-date.pipe';
+import { CustomStyleDirective } from '../custom-style.directive';
 
 @NgModule({
   imports: [
@@ -16,6 +18,6 @@ import { TablePage } from './table.page';
 
     TablePageRoutingModule
   ],
-  declarations: [TablePage]
+  declarations: [TablePage, FormatDatePipe, CustomStyleDirective]
 })
-export class TablePageModule {}
+export class TablePageModule { }
