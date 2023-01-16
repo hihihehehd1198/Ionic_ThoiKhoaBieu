@@ -1,29 +1,11 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-table',
-//   templateUrl: './table.page.html',
-//   styleUrls: ['./table.page.scss'],
-// })
-// export class TablePage implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
-
-
-
-
-
 import { CommonModule, NgSwitchCase } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-// import { CustomStyleDirective } from './directives/custom-style.directive';
-// import { FormatDatePipe } from './pipes/format-date.pipe';
-
-
+import {
+  ActionPerformed,
+  PushNotificationSchema,
+  PushNotifications,
+  Token,
+} from '@capacitor/push-notifications';
 
 enum Time {
   Time1 = "7 - 8.30'",
@@ -275,5 +257,26 @@ export class TablePage implements OnInit {
     this.renderEventDate()
   }
 
+  //push notification 
+  initPushNotification() {
+    PushNotifications.requestPermissions().then(result => {
+      if (result.receive === 'granted') {
+        PushNotifications.register();
+      }
+    })
 
+    PushNotifications.addListener('registration', (token: Token) => {
+      alert('token as success ' + token.value)
+    })
+
+    PushNotifications.addListener('pushNotificationReceived', (notification: PushNotificationSchema) => {
+      alert('push received :'+ JSON.stringify(notification))
+    })
+
+    PushNotifications.addListener('pushNotificationActionPerformed', (notification: ActionPerformed) => {
+
+      alert('push action performed :' + JSON.stringify(notification))
+    })
+
+  }
 }
